@@ -1,0 +1,1 @@
+# Ensures evidence/ exists in clean clones before transfer_evidence_*.txt is written.

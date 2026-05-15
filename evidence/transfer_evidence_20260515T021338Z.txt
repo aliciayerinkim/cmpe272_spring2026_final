@@ -1,0 +1,28 @@
+transfer_evidence (collect_evidence manual) generated=2026-05-15T02:13:38.274057+00:00
+platform=Windows-10-10.0.26200-SP0
+python=3.10.11 executable=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe
+repo_root=C:\Users\alici\Downloads\cmpe272_spring2026_final
+
+source_path=C:\Users\alici\Downloads\cmpe272_spring2026_final\mtls_smoke.txt
+approach_a_output=C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-a-4gb\mtls_smoke.txt
+approach_b_output=C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-b-4gb\mtls_smoke.txt
+
+source_bytes=19
+INPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+
+Approach_A_output_bytes=19
+APPROACH_A_OUTPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+A_match=PASS
+
+Approach_B_output_bytes=19
+APPROACH_B_OUTPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+B_match=PASS
+
+COMMAND_HISTORY_TEMPLATE:
+# After manual transfers:
+#   python scripts/collect_evidence.py \
+#     --input mtls_smoke.txt \
+#     --approach-a-output evidence/received-a-4gb/mtls_smoke.txt \
+#     --approach-b-output evidence/received-b-4gb/mtls_smoke.txt
+
+OVERALL=PASS

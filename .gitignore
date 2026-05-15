@@ -1,0 +1,37 @@
+# --- Virtualenv / bytecode (generated; keeps clones clean)
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Approach A certificates (cryptography PEM output; script sources stay tracked)
+approach-a-mtls/certs/*.pem
+
+# --- Approach B long-term keys + TESTING.md demo dirs
+approach-b-envelope/keys/*.pem
+approach-b-envelope/keys-alt/
+approach-b-envelope/keys-wrong-demo/
+
+# --- Receiver output trees (includes *.part siblings, final files, .quarantine/)
+received/
+received-b/
+received-failsafe/
+received-b-failsafe/
+received-failsafe-demo/
+received-b-failsafe-demo/
+
+# --- Loose partial/staged uploads if written outside those dirs (*.part naming from common/constants)
+*.part
+
+# --- 4 GiB evidence runs (run_4gb_evidence.py); keep transfer_evidence_*.txt tracked or zip for grading
+evidence/received-a-4gb/
+evidence/received-b-4gb/
+evidence/*.part
+
+# --- README / demo payloads at repo root (generated or copy-pasted)
+b_approach_b_e2e_payload.bin
+testing_1mb.bin
+failsafe_demo_512m.bin
+failsafe_demo_1g.bin
+zero4g.bin
+test_4gb.bin

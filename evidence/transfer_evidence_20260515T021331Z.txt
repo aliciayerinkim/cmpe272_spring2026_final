@@ -1,0 +1,64 @@
+transfer_evidence generated=2026-05-15T02:13:28.926424+00:00
+platform=Windows-10-10.0.26200-SP0
+python=3.10.11 executable=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe
+repo_root=C:\Users\alici\Downloads\cmpe272_spring2026_final
+input_path=C:\Users\alici\Downloads\cmpe272_spring2026_final\mtls_smoke.txt
+
+input_bytes=19
+INPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+
+--- Approach A (automated subprocess) ---
+receiver_cmd=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-a-mtls\receiver.py --host 127.0.0.1 --port 38443 --output-dir C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-a-4gb
+sender_cmd=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-a-mtls\sender.py --host 127.0.0.1 --port 38443 --file C:\Users\alici\Downloads\cmpe272_spring2026_final\mtls_smoke.txt --remote-name mtls_smoke.txt
+receiver_exit_code=0
+sender_exit_code=0
+
+[receiver_stdout]
+Listening on 127.0.0.1:38443 (mTLS required)...
+Accepted TCP connection from ('127.0.0.1', 55713)
+Client authenticated: CN='mtls-client'
+Accepted metadata: name='mtls_smoke.txt' size=19 bytes sha256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+Progress: 19/19 bytes (100.0%)
+OK: wrote C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-a-4gb\mtls_smoke.txt
+Throughput: 0.01 MB/s (SI)  |  0.01 MiB/s (1024^2)
+
+[sender_stdout+stderr]
+Hashing: 19/19 bytes (100.0%)
+SHA-256 (streaming): f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985  (19 bytes)  [0.03 MB/s (SI)  |  0.03 MiB/s (1024^2)]
+Sending: 19/19 bytes (100.0%)
+OK: sent 'mtls_smoke.txt' (19 bytes)
+Send throughput: 0.04 MB/s (SI)  |  0.04 MiB/s (1024^2)
+
+Approach_A_output_bytes=19
+APPROACH_A_OUTPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+A_match=PASS
+
+--- Approach B (automated subprocess) ---
+receiver_cmd=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-b-envelope\receiver.py --host 127.0.0.1 --port 39443 --keys-dir C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-b-envelope\keys --output-dir C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-b-4gb
+sender_cmd=C:\Users\alici\Downloads\cmpe272_spring2026_final\.venv\Scripts\python.exe C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-b-envelope\sender.py --host 127.0.0.1 --port 39443 --keys-dir C:\Users\alici\Downloads\cmpe272_spring2026_final\approach-b-envelope\keys --file C:\Users\alici\Downloads\cmpe272_spring2026_final\mtls_smoke.txt --remote-name mtls_smoke.txt
+receiver_exit_code=0
+sender_exit_code=0
+
+[receiver_stdout]
+Listening on 127.0.0.1:39443 (Approach B envelope)...
+Accepted TCP from ('127.0.0.1', 55720)
+Manifest OK: file='mtls_smoke.txt' size=19 chunks=1 aead=chacha20-poly1305
+Progress: 19/19 bytes (100.0%)
+OK: wrote C:\Users\alici\Downloads\cmpe272_spring2026_final\evidence\received-b-4gb\mtls_smoke.txt
+Payload throughput: 0.01 MB/s (SI)  |  0.01 MiB/s (1024^2)
+
+[sender_stdout+stderr]
+Hashing: 19/19 bytes (100.0%)
+SHA-256 (streaming): f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985  (19 bytes)  [0.05 MB/s (SI)  |  0.05 MiB/s (1024^2)]
+Sending: 19/19 bytes (100.0%)
+OK: sent 'mtls_smoke.txt' (19 bytes)
+Payload throughput: 0.02 MB/s (SI)  |  0.02 MiB/s (1024^2)
+
+Approach_B_output_bytes=19
+APPROACH_B_OUTPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+B_match=PASS
+
+SUMMARY:
+  INPUT_SHA256=f5a366ce87230fbcb778edb95fd7c4dbfa0b5710b6d07ff073821aa196dd2985
+  Approach A output match: True
+  Approach B output match: True

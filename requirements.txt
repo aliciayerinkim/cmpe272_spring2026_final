@@ -1,0 +1,6 @@
+# Well-reviewed cryptographic primitives (envelope approach, cert handling, etc.).
+cryptography>=42.0.0
+
+# Development and quality gates (optional at runtime).
+# pytest>=8.0.0
+# ruff>=0.4.0

@@ -92,7 +92,7 @@ Below, each property names the **implementation artifact** that satisfies it. **
 
 | Stretch item | Status |
 |--------------|--------|
-| Resumable signed chunk offsets | **Not implemented** — assignment **fail‑safe** minimum is used instead (**`DESIGN.md` §1**, **`RESUMABILITY_PLAN.md`** sketches a future Approach B‑only design). |
+| Resumable signed chunk offsets | **Not implemented** — assignment **fail‑safe** minimum is used instead (**`DESIGN.md` §1**); interrupted transfers require a **full re-transfer** (no negotiated resume offsets in v1). |
 | Throughput measurement | **Yes** — both stacks print **MB/s (SI)** and **MiB/s (1024²)** for the **payload** phase; see **§2.4.1**. |
 | Forward secrecy | **Approach B:** ephemeral X25519 per session in the handshake (**§5.4**); **Approach A:** TLS key schedule when an **ECDHE** AEAD suite negotiates (**§2.4.2**, **`common.constants.TLS12_MT_ALLOWED_CIPHER_LIST`**). |
 | Untrusted broker / object store | **Not used** — direct sender→receiver TCP only; broker/object‑store threat model is **out of scope**. |
